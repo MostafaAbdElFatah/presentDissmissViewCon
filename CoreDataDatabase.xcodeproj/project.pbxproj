@@ -15,6 +15,7 @@
 		71AD2B041F18E4A6002B2C24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71AD2B021F18E4A6002B2C24 /* LaunchScreen.storyboard */; };
 		71AD2B0F1F18E4A6002B2C24 /* CoreDataDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD2B0E1F18E4A6002B2C24 /* CoreDataDatabaseTests.swift */; };
 		71AD2B1A1F18E4A6002B2C24 /* CoreDataDatabaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD2B191F18E4A6002B2C24 /* CoreDataDatabaseUITests.swift */; };
+		71AD2B281F18EBF6002B2C24 /* SecondViewCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD2B271F18EBF6002B2C24 /* SecondViewCon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		71AD2B151F18E4A6002B2C24 /* CoreDataDatabaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataDatabaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71AD2B191F18E4A6002B2C24 /* CoreDataDatabaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDatabaseUITests.swift; sourceTree = "<group>"; };
 		71AD2B1B1F18E4A6002B2C24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71AD2B271F18EBF6002B2C24 /* SecondViewCon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewCon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				71AD2B021F18E4A6002B2C24 /* LaunchScreen.storyboard */,
 				71AD2B051F18E4A6002B2C24 /* Info.plist */,
 				71AD2AFD1F18E4A6002B2C24 /* CoreDataDatabase.xcdatamodeld */,
+				71AD2B271F18EBF6002B2C24 /* SecondViewCon.swift */,
 			);
 			path = CoreDataDatabase;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71AD2AF91F18E4A6002B2C24 /* ViewController.swift in Sources */,
+				71AD2B281F18EBF6002B2C24 /* SecondViewCon.swift in Sources */,
 				71AD2AFF1F18E4A6002B2C24 /* CoreDataDatabase.xcdatamodeld in Sources */,
 				71AD2AF71F18E4A6002B2C24 /* AppDelegate.swift in Sources */,
 			);
