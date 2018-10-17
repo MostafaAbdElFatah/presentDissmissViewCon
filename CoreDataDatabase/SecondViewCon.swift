@@ -15,23 +15,23 @@ class SecondViewCon: UIViewController , UITableViewDataSource , UITableViewDeleg
     var userarr:[NSManagedObject] = []
     
     override func viewDidLoad() {
-        self.mytable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.mytable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.fetchData()
         self.mytable.reloadData()
     }
     
-    @IBAction func Back_btnClicked(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func Back_btnClicked(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func fetchData(){
         
-        let appDeleg:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDeleg:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let context:NSManagedObjectContext = appDeleg.managedObjectContext
         
         do{
-            let request = NSFetchRequest(entityName: "UserInfo")
-            let results = try context.executeFetchRequest(request)
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserInfo")
+            let results = try context.fetch(request)
             for item in results as! [NSManagedObject]{
                 self.userarr.append(item)
             }
@@ -41,24 +41,21 @@ class SecondViewCon: UIViewController , UITableViewDataSource , UITableViewDeleg
         }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
+
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.userarr.count
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            let appDeleg:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            let appDeleg:AppDelegate = UIApplication.shared.delegate as! AppDelegate
             let context:NSManagedObjectContext = appDeleg.managedObjectContext
-            context.deleteObject(self.userarr[indexPath.row])
+            context.delete(self.userarr[indexPath.row])
             do{
                 try context.save()
                 self.userarr.removeAll()
@@ -68,10 +65,10 @@ class SecondViewCon: UIViewController , UITableViewDataSource , UITableViewDeleg
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        let firstname = self.userarr[indexPath.row].valueForKey("firstName") as! String
-        let lastname  = self.userarr[indexPath.row].valueForKey("lastName") as! String
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let firstname = self.userarr[indexPath.row].value(forKey: "firstName") as! String
+        let lastname  = self.userarr[indexPath.row].value(forKey: "lastName") as! String
         cell.textLabel?.text = firstname + "  " + lastname
         return cell
     }
